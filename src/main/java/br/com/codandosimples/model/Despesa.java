@@ -18,6 +18,10 @@ public class Despesa {
         this.categoria = categoria;
     }
 
+    public Despesa() {
+
+    }
+
     public Long getId() {
         return id;
     }
