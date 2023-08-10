@@ -13,7 +13,7 @@ public class Application {
     public static void main(String[] args) {
 
         DespesaDAO dao = new DespesaDAO();
-        List<Despesa> despesas = dao.findByCategoria(Categoria.MORADIA);
+        List<Despesa> despesas = dao.findByValor(90);
         System.out.println("***************************");
         for(Despesa despesa : despesas){
             System.out.println("ID: "+despesa.getId());
@@ -22,6 +22,18 @@ public class Application {
             System.out.println("Categoria: "+ despesa.getCategoria());
             System.out.println("***************************");
         }
+
+
+//        DespesaDAO dao = new DespesaDAO();
+//        List<Despesa> despesas = dao.findByCategoria(Categoria.MORADIA);
+//        System.out.println("***************************");
+//        for(Despesa despesa : despesas){
+//            System.out.println("ID: "+despesa.getId());
+//            System.out.println("Descrição: "+ despesa.getDescricao());
+//            System.out.println("Valor: R$"+despesa.getValor());
+//            System.out.println("Categoria: "+ despesa.getCategoria());
+//            System.out.println("***************************");
+//        }
 
 
 //        DespesaDAO dao = new DespesaDAO();

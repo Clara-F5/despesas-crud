@@ -15,4 +15,6 @@ public interface IDespesaDAO {
     Optional<Despesa>findById(Long id);
     List<Despesa> findByCategoria(Categoria categoria);
 
+    List<Despesa> findByValor(double valor);
+
 }

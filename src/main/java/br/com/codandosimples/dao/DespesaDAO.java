@@ -126,4 +126,33 @@ public class DespesaDAO implements IDespesaDAO {
         }
         return despesas;
     }
+
+    @Override
+    public List<Despesa> findByValor(double valor) {
+        String sql = "SELECT id, descricao, dataD, valor, categoria FROM despesas WHERE valor = ?";
+
+        List<Despesa> despesas = new ArrayList<>();
+
+        try(Connection connection = ConnectionFactory.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setDouble(1,valor);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while(rs.next()){
+                Long id = rs.getLong("id");
+                String descricao = rs.getString("descricao");
+                LocalDate data = rs.getDate("dataD").toLocalDate();
+                Categoria categoria = Categoria.valueOf(rs.getString("categoria"));
+                double val = rs.getDouble("valor");
+
+                Despesa despesa = new Despesa(id, descricao, data, val, categoria);
+                despesas.add(despesa);
+            }
+
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+        return despesas;
+    }
 }
