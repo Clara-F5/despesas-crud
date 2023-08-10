@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
-public class Application {
+public class ListandoDespesas {
     public static void main(String[] args) {
 
         DespesaDAO dao = new DespesaDAO();
